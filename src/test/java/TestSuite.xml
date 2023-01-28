@@ -1,13 +1,13 @@
 <!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd" >
 
 <suite name="TestSuite">
-    <test name="ChromeTest" enabled="false">
+    <test name="ChromeTest" enabled="true">
         <parameter name="browser" value="chrome"/>
         <classes>
             <class name="tests.InsiderTests"/>
         </classes>
     </test>
-    <test name="FirefoxTests" enabled="true">
+    <test name="FirefoxTests" enabled="false">
         <parameter name="browser" value="firefox"/>
         <classes>
             <class name="tests.InsiderTests"/>
