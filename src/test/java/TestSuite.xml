@@ -7,7 +7,7 @@
             <class name="tests.InsiderTests"/>
         </classes>
     </test>
-    <test name="FirefoxTests" enabled="false">
+    <test name="FirefoxTests" enabled="true">
         <parameter name="browser" value="firefox"/>
         <classes>
             <class name="tests.InsiderTests"/>

@@ -1,5 +1,6 @@
 package utils;
 
+import io.github.bonigarcia.wdm.WebDriverManager;
 import org.openqa.selenium.Cookie;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
@@ -18,16 +19,20 @@ public abstract class DriverManager {
     public void setDriver(String testBrowser){
         switch (testBrowser){
             case "chrome":{
+                WebDriverManager.chromedriver().setup();
                 ChromeOptions chromeOptions = new ChromeOptions();
                 chromeOptions.addArguments("--start-maximized");
                 driver = new ChromeDriver(chromeOptions);
+                //driver.manage().window().fullscreen();
                 System.out.println("Tests are running via Chrome Browser");
                 break;
             }
             case "firefox":{
+                WebDriverManager.firefoxdriver().setup();
                 FirefoxOptions firefoxOptions = new FirefoxOptions();
-                firefoxOptions.addArguments("--start-maximized");
+                //firefoxOptions.addArguments("--start-maximized");
                 driver = new FirefoxDriver(firefoxOptions);
+                driver.manage().window().fullscreen();
                 System.out.println("Tests are running via Firefox Browser");
                 break;
             }

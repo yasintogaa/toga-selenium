@@ -1,7 +1,6 @@
 package tests;
 
 import org.openqa.selenium.WebElement;
-import org.testng.asserts.SoftAssert;
 import pages.*;
 import org.testng.annotations.*;
 
@@ -17,8 +16,8 @@ public class InsiderTests extends BaseTest {
     LeverPage leverPage;
 
     //tests
-    @Test(description = "Visit Home Page and check some sections of it")
-    void checkHomePage() throws InterruptedException {
+    @Test(enabled = true, description = "Visit Home Page and check some sections of it")
+    void checkHomePage() {
         //POM initialization
         homePage = new HomePage(driver);
 
@@ -39,8 +38,8 @@ public class InsiderTests extends BaseTest {
         softAssertion.assertAll();
     }
 
-    @Test(description = "Visit Careers Page and check some sections of it")
-    void checkCareersPage() throws InterruptedException {
+    @Test(enabled = true, description = "Visit Careers Page and check some sections of it")
+    void checkCareersPage() {
         //POM initialization
         homePage = new HomePage(driver);
         careersPage = new CareersPage(driver);
@@ -60,7 +59,7 @@ public class InsiderTests extends BaseTest {
         softAssertion.assertAll();
     }
 
-    @Test(description = "Filter QA jobs from Istanbul")
+    @Test(enabled = true, description = "Filter QA jobs from Istanbul")
     void filterQAJobResults() throws InterruptedException {
         //POM initialization
         homePage = new HomePage(driver);
@@ -105,7 +104,7 @@ public class InsiderTests extends BaseTest {
         softAssertion.assertAll("SoftAssertions performed.");
     }
 
-    @Test(description = "Apply all QA jobs from Istanbul and check lever application forms")
+    @Test(enabled = true, description = "Apply all QA jobs from Istanbul and check lever application forms")
     void checkQAJobsApplyForm() throws InterruptedException {
         //POM initialization
         homePage = new HomePage(driver);

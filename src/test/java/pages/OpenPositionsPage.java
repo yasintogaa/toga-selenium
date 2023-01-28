@@ -3,6 +3,7 @@ package pages;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import pages.components.NavigationBarComponent;
 
@@ -27,17 +28,20 @@ public class OpenPositionsPage extends BasePage {
     }
 
     public void selectLocationFilter(String location) throws InterruptedException {
-        locationOptionsSelector = By.xpath("//option[contains(text(),'" + location + "')]");//TODO: it doesnt work for gecko???
+        //TODO: should it be select differently in gecko and chrome??
+        String dropdownOptionsTag = (driver instanceof FirefoxDriver) ? "li" : "option";
+        locationOptionsSelector = By.xpath("//" + dropdownOptionsTag + "[contains(text(),'" + location + "')]");
+
         driver.findElement(locationFilterDropdownSelector).click();
         driver.findElement(locationOptionsSelector).click();
         Thread.sleep(2000);//TODO:couldn't find any solution except Thread.sleep here
     }
-    public void applyJob(WebElement element){
+    public void applyJob(WebElement element) {
         wait.until(ExpectedConditions.elementToBeClickable(applyButtonSelector));
         element.findElement(applyButtonSelector).click();
     }
 
-    public List<WebElement> getResultItems() throws InterruptedException {
+    public List<WebElement> getResultItems(){
         //wait.until(ExpectedConditions.elementToBeClickable(searchResultsSelector));
         return driver.findElements(searchResultsSelector);
     }

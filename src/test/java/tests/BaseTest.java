@@ -52,7 +52,7 @@ public abstract class BaseTest extends DriverManager {
             System.out.println(e.getMessage());
         }
     }
-    public void scrollToFooterOfPage() throws InterruptedException {
+    public void scrollToFooterOfPage() {
         while(!driver.findElement(By.xpath("//section[@id='footer']")).isDisplayed()){
             js = (JavascriptExecutor) driver;
             js.executeScript("window.scrollTo(0, document.body.scrollHeight);");
@@ -62,6 +62,7 @@ public abstract class BaseTest extends DriverManager {
         actions = new Actions(driver);
         try {
             actions.moveToElement(element).build().perform();
+            Thread.sleep(2000);
         }
         catch (MoveTargetOutOfBoundsException moveTargetOutOfBoundsException) {
             moveTargetOutOfBoundsException.printStackTrace();
