@@ -1,1 +1,2 @@
 # insider-selenium
+# TestSuite.xml
