@@ -1,2 +1,2 @@
 # insider-selenium
-# TestSuite.xml
+## please run with mvn on TestSuite.xml
